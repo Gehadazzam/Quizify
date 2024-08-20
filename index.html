@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'accent': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: '#38b2ac',
+                        orange: '#ed8936',
+                        addpink: '#805ad5',
+                        lightBlue: '#a0e7e5',
+                        addpink: '#ffb3c1',
+                        mintGreen: '#a7f3d0',
+                        navyBlue: '#1a202c',
+                        yellow: '#f6e05e',
+                        lightGray: '#edf2f7'
+
+                    },
+                    backgroundImage: {
+                        intro: "url('./images/intro.jpg')",
+                    },
+                },
+
+            },
+            plugins: [
+                function ({ addUtilities }) {
+                    const newUtilities = {
+                        '::selection': {
+                            backgroundColor: '#ffb3c1',
+                        },
+                    };
+                    addUtilities(newUtilities, ['responsive', 'hover']);
+                },
+            ],
+        }
+    </script>
+</head>
+
+<body>
+    <header class="bg-teal text-white p-4 flex justify-between items-center">
+
+        <h1 class="text-2xl font-bold">Quizify</h1>
+        <nav class="relative">
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Desktop menu -->
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="#" class="text-white hover:text-lightGray">Home</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">About</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">Contact</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">Login</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">Signup</a></li>
+            </ul>
+
+            <!-- Mobile menu (hidden by default) -->
+            <ul class="absolute right-0 mt-2 w-48 bg-teal rounded-md shadow-lg py-1 hidden">
+                <li><a href="#" class="block px-4 py-2 text-white hover:bg-lightBlue">Home</a></li>
+                <li><a href="#" class="block px-4 py-2 text-white hover:bg-lightBlue">About</a></li>
+                <li><a href="#" class="block px-4 py-2 text-white hover:bg-lightBlue">Contact</a></li>
+                <li><a href="#" class="block px-4 py-2 text-white hover:bg-lightBlue">Login</a></li>
+                <li><a href="#" class="block px-4 py-2 text-white hover:bg-lightBlue">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="">
+        <div
+            class="bg-intro bg-cover bg-center h-screen w-full flex flex-col justify-center items-center md:items-end md:pr-32 lg:pr-48 relative">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div
+                class="flex flex-col w-5/6 md:w-1/2 lg:w-1/3 gap-4 justify-center items-center bg-opacity-70 backdrop-blur-2xl shadow-lg rounded-lg p-8 relative z-10">
+                <h2 class="text-xl text-white font-accent font-bold mb-4">Welcome to Quizify</h2>
+                <p class="text-white">Quizify is a platform for creating and taking quizzes. It is a simple and
+                    user-friendly platform that allows you to create quizzes and share them with your friends.</p>
+                <button
+                    class="bg-gradient-to-l from-teal to-lightBlue hover:from-lightBlue hover:to-teal   transition duration-300 text-white px-4 py-2 rounded-md">Get
+                    Started</button>
+            </div>
+        </div>
+        <div class="m-auto gap-8 py-8 w-5/6 flex flex-col my-16 md:flex-row justify-center items-center">
+            <img src="./images/teaching.jpg" alt="teaching" class="w-full md:w-1/2 rounded-lg">
+            <div class="p-8 flex flex-col justify-center text-navyBlue w-2/3 gap-8 md:w-1/3">
+                <h2 class="text-xl font-accent font-bold mb-4 md:text-4xl">Quizzes</h2>
+                <p class="md:text-lg">Quizify is a platform for creating and taking quizzes. It is a simple and
+                    user-friendly platform that allows you to create quizzes and share them with your friends.</p>
+                <button
+                    class=" bg-gradient-to-r from-pink-400 to-pink-700 hover:from-pink-700 hover:to-pink-900 text-white font-bold  rounded-full w-2/4 py-4 transition duration-300">Try
+                    it</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-teal text-white p-8 md:p-16 flex flex-col md:flex-row justify-between items-center ">
+        <div class="flex flex-col md:w-1/3">
+            <h2 class="text-xl font-accent font-bold mb-4 md:text-4xl">Quizify</h2>
+            <p class="md:text-lg">Quizify is a platform for creating and taking quizzes. It is a simple and
+                user-friendly platform that allows you to create quizzes and share them with your friends.</p>
+        </div>
+        <nav class="flex flex-col">
+            <h3 class="text-lg font-accent font-bold mb-2">Quick Links</h3>
+            <ul class="grid grid-cols-2 gap-2 place-items-center ">
+                <li><a href="#" class="text-white hover:text-lightGray">Home</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">About</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">Contact</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">Login</a></li>
+                <li><a href="#" class="text-white hover:text-lightGray">Signup</a></li>
+            </ul>
+        </nav>
+        <div class="flex flex-col justify-end gap-4">
+            <p>Follow us on social media</p>
+            <div class="flex gap-4">
+                <a href="#" class="text-white text-2xl hover:text-addpink">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-white text-2xl hover:text-addpink">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-white text-2xl hover:text-addpink">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="mt-16">&copy; 2024 Quizify</p>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/671c6ac721.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
