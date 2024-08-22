@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'accent': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: '#38b2ac',
+                        orange: '#ed8936',
+                        addpink: '#805ad5',
+                        lightBlue: '#a0e7e5',
+                        addpink: '#ffb3c1',
+                        mintGreen: '#a7f3d0',
+                        navyBlue: '#1a202c',
+                        yellow: '#f6e05e',
+                        lightGray: '#edf2f7'
+
+                    },
+                    backgroundImage: {
+                        intro: "url('./images/intro.jpg')",
+                        signup: "url('./images/sup.jpg')",
+                    },
+                },
+
+            },
+            plugins: [
+                function ({ addUtilities }) {
+                    const newUtilities = {
+                        '::selection': {
+                            backgroundColor: '#a0e7e5',
+                        },
+                    };
+                    addUtilities(newUtilities, ['responsive', 'hover']);
+                },
+            ],
+        }
+    </script>
+</head>
+
+<body>
+    <header class="bg-teal text-white p-4 flex justify-between items-center fixed w-full z-10">
+
+        <h1 class="text-2xl font-bold"> <a href="./index.html">Quizify</a> </h1>
+        <nav class="relative">
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Desktop menu -->
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="./index.html" class="text-white hover:text-lightGray">Home</a></li>
+                <li><a href="./about.html" class="text-white hover:text-lightGray">About</a></li>
+                <li><a href="./contact.html" class="text-white hover:text-lightGray">Contact</a></li>
+                <li><a href="./login.html" class="text-white hover:text-lightGray">Login</a></li>
+                <li><a href="./signup.html" class="text-white hover:text-lightGray">Signup</a></li>
+            </ul>
+
+            <!-- Mobile menu (hidden by default) -->
+            <ul class="absolute right-0 mt-2 w-48 bg-teal rounded-md shadow-lg py-1 hidden">
+                <li><a href="./index.html" class="block px-4 py-2 text-white hover:bg-lightBlue">Home</a></li>
+                <li><a href="./about.html" class="block px-4 py-2 text-white hover:bg-lightBlue">About</a></li>
+                <li><a href="./contact.html" class="block px-4 py-2 text-white hover:bg-lightBlue">Contact</a></li>
+                <li><a href="./login.html" class="block px-4 py-2 text-white hover:bg-lightBlue">Login</a></li>
+                <li><a href="./signup.html" class="text-white hover:text-lightGray">Signup</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main class="h-screen w-full flex justify-center items-center z-0" id="main">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
+            <h2 class="text-3xl font-bold text-teal mb-6">Design Your Quiz</h2>
+            <form class="space-y-6">
+                <div>
+                    <label for="quizTitle" class="block text-sm font-medium text-gray-700">Quiz Title</label>
+                    <input type="text" id="quizTitle" name="quizTitle" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm outline-none focus:border-teal focus:ring focus:ring-teal focus:ring-opacity-50">
+                </div>
+                <div>
+                    <label for="quizDescription" class="block text-sm font-medium text-gray-700">Quiz
+                        Description</label>
+                    <textarea id="quizDescription" name="quizDescription" rows="3" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm outline-none resize-none focus:border-teal focus:ring focus:ring-teal focus:ring-opacity-50"></textarea>
+                </div>
+                <div class="flex flex-col md:flex-row gap-2 md:gap-12">
+                    <div class="md:mr-2 mb-4 md:mb-0">
+                        <label for="quizCategory" class="block text-sm font-medium text-gray-700">Category</label>
+                        <select id="quizCategory" name="quizCategory"
+                            class="mt-1 block w-full rounded-md bg-white outline-none border-gray-300 shadow-sm focus:border-teal focus:border-2">
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="general-knowledge" class="text-gray-700 hover:text-teal">General Knowledge
+                            </option>
+                            <option value="science" class="text-gray-700 hover:text-teal">Science
+                            </option>
+                            <option value="history" class="text-gray-700 hover:text-teal">History
+                            </option>
+                            <option value="literature" class="text-gray-700">
+                                Literature</option>
+                            <option value="mathematics" class="text-gray-700 hover:text-teal">
+                                Mathematics</option>
+                            <option value="programming" class="text-gray-700 hover:text-teal">
+                                Programming</option>
+                        </select>
+                    </div>
+                    <div class="md:ml-2">
+                        <label for="quizDifficulty" class="block text-sm font-medium text-gray-700">Difficulty</label>
+                        <select id="quizDifficulty" name="quizDifficulty"
+                            class="mt-1 outline-none block w-full bg-white border-gray-300 shadow-sm focus:border-teal focus:border-2 rounded-md">
+                            <option value="" disabled selected>Select difficulty</option>
+                            <option value="easy" class="text-gray-700 hover:bg-teal hover:text-white">Easy</option>
+                            <option value="medium" class="text-gray-700 hover:text-teal">Medium
+                            </option>
+                            <option value="hard" class="text-gray-700 hover:text-teal">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <button type="button"
+                            class="bg-teal text-white rounded-xl hover:bg-darkTeal focus:outline-none w-full px-4 py-2"
+                            id="addQuestion">
+                            Add Question
+                        </button>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="bg-addpink text-white rounded-xl hover:bg-darkPink focus:outline-none w-full px-4 py-2 mt-2">
+                            Create Quiz
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="addQuestionForm" class="hidden">
+            <form>
+                <input type="text" id="question" name="question" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm outline-none focus:border-teal focus:ring focus:ring-teal focus:ring-opacity-50">
+                <input type="text" id="question" name="question" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm outline-none focus:border-teal focus:ring focus:ring-teal focus:ring-opacity-50">
+                <input type="text" id="question" name="question" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm outline-none focus:border-teal focus:ring focus:ring-teal focus:ring-opacity-50">
+            </form>
+        </div>
+    </main>
+    <footer class="bg-teal text-white p-8 md:p-16 flex flex-col md:flex-row justify-between items-center ">
+        <div class="flex flex-col md:w-1/3">
+            <h2 class="text-xl font-accent font-bold mb-4 md:text-4xl">Quizify</h2>
+            <p class="md:text-lg">Quizify is a platform for creating and taking quizzes. It is a simple and
+                user-friendly platform that allows you to create quizzes and share them with your friends.</p>
+        </div>
+        <div>
+            <h3 class="text-lg font-accent font-bold mb-2">Quick Links</h3>
+            <ul class="grid grid-cols-2 gap-2 place-items-center ">
+                <li><a href="./index.html" class="text-white hover:text-lightGray">Home</a></li>
+                <li><a href="./about.html" class="text-white hover:text-lightGray">About</a></li>
+                <li><a href="./contact.html" class="text-white hover:text-lightGray">Contact</a></li>
+                <li><a href="./login.html" class="text-white hover:text-lightGray">Login</a></li>
+                <li><a href="./signup.html" class="text-white hover:text-lightGray">Signup</a></li>
+                <li><a href="./Design.html" class="text-white hover:text-lightGray">Design</a></li>
+            </ul>
+        </div>
+        <div class="flex flex-col justify-end gap-4">
+            <p>Follow us on social media</p>
+            <div class="flex gap-4">
+                <a href="#" class="text-white text-2xl hover:text-addpink">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-white text-2xl hover:text-addpink">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-white text-2xl hover:text-addpink">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="mt-16">&copy; 2024 Quizify</p>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>
